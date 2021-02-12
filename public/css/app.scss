@@ -1,0 +1,335 @@
+$couleurTitre:hsl(155, 47%, 48%);
+$couleurBouton:#93DFB8;
+$couleurBoutonActif:hsl(149, 73%, 56%);
+$couleurBordure:#9a8194;
+$couleurBGC:#e2fefd;
+$couleurCarte:#ebd8b7;
+$couleurOmbre:#c6a9a3;
+
+
+@media screen and (max-width:600px){
+  .carte{
+    width: 250px;
+  }
+  
+}
+
+/*
+  GENERAL => PAGE => COMPOSANT => TAG => classes
+*/
+
+*{
+  box-sizing: border-box;
+  margin:0px;
+  padding: 0px;
+  font-family: 'Montserrat', sans-serif;
+  a{
+    text-decoration: none;
+    color: $couleurBordure;
+  }
+  list-style: none;
+}
+
+body{
+  background-color: $couleurBGC;
+}
+
+// PAGE
+body.fixed-nav nav {
+  position: fixed;
+  box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+}
+.container{
+  background-color: $couleurBGC;
+  display: block;
+  width: 85vW;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+
+
+// Composant
+#entete{
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 5;
+}
+nav {
+  background-color: $couleurBGC ;
+  margin-bottom: 25px;
+
+  ul{
+    display: flex;
+    justify-content: center;
+    color: $couleurBordure;
+    li{
+      font-weight: bold;
+      list-style-type: none;
+      margin:5px 10px;
+      a{
+        color: $couleurBordure;
+      }
+    }
+    li:hover{
+      background-color: #ffffff;
+    }
+  }
+  li:hover a,
+  li:hover{
+    color: $couleurTitre;
+  }
+} 
+
+.dropdown{
+  background-color: #ffffff;
+  height: 0px;
+  visibility: hidden;
+  li::before{
+    content:"\2BA9"
+
+  }
+}
+
+.droper:hover .dropdown{
+  height: auto;
+  visibility: visible;
+}
+
+.button {
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin: 25px auto;
+  padding: 12px 24px;
+  border: 2px solid $couleurBouton;
+  border-radius: 8px;
+  background: $couleurBouton;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.button:active,
+.button:hover,
+.button:focus {
+  background: $couleurBoutonActif;
+  border: 2px solid $couleurBoutonActif;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.listeProduit{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .carte{
+    position: relative;
+    max-width: 400px;
+    height: auto;
+    background-color: #ffffff;
+    margin: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    // border: 1px solid black;
+    button{
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      background-color: red;
+      left: -45px;
+      border-radius: 20px;
+      background-color: #1d7cf3;
+      font-weight: bold;
+      color: #fff;
+      border: 1px solid #1d7cf3;
+      font-size: 30px;
+    }
+    .suppr{
+      top:60px;
+      background-color: #EA545D;
+      border: 1px solid #EA545D;
+      font-size: 20px;
+
+    }
+    section{
+      display: flex;
+      flex-direction: row;
+      aside{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0 5px 0 0;
+        img{
+          width: 150px;
+          height: 100px;
+          filter: opacity(100%);
+        }
+        img:hover{
+          filter: opacity(75%);
+        }
+      }
+      article{
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        .box{
+          height: 2.5rem;
+          overflow: hidden;
+        }
+        .prix{
+          display: flex;
+          align-self: flex-end;
+          font-weight: bold;
+        }
+      }
+    }
+    h3{
+      color: $couleurTitre;
+    }
+  }
+  .carte:hover{
+    box-shadow: 0 14px 20px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  
+}
+
+#formCreationProduit{
+  position: relative;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 1px 2px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+  input, textarea{
+    border: 1px solid $couleurBordure;
+    border-radius: 10px;  
+  }  
+  .input:hover,
+  .input:active,
+  .input:focus{
+    border: 1px solid $couleurBordure;
+    border-radius: 10px;
+  }
+  
+}
+#pagePropos{
+  position: relative;
+}
+.realisation{
+  visibility: hidden;
+  width: 0;
+  z-index: 4;
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: ease-in;
+  transition-delay: 5s;
+  p{
+    color: $couleurBordure;
+    font-weight: bold;
+  }
+}
+#propos:hover .realisation{
+  visibility: visible;
+  width: auto;
+  transition-duration: 2s;
+
+}
+
+// TAG
+
+h1{
+  z-index: 2;
+  text-align: center;
+  color: $couleurTitre;
+  font-size: 1.4rem;
+  background-color: $couleurBGC;
+}
+
+h2, h3{  
+  color: $couleurTitre;
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+}
+
+h2{
+  margin-top: 10px;
+}
+
+h4{
+  margin-bottom: 10px;
+}
+
+label {
+  color: $couleurBordure;
+  font-weight: bold;
+}
+
+
+// CLASSE
+.sucess{
+  border: 1px solid $couleurBordure;
+  border-radius: 0px 0px 10px 0px;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: auto;
+  height: 125px;
+}
+.red{
+  color: red;
+}
+
+.half{
+  width:50%;
+}
+
+.couleurBordure{
+  color: $couleurBordure;
+}
+.bold{
+  font-weight: bold;
+}
+
+.ancienneValeur{
+  font-weight: bold;
+}
+
+.ligne{
+  display: flex;
+  flex-direction: row;
+}
+
+.colone{
+  display: flex;
+  flex-direction: column;
+}
+
+.between{
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.marge{
+  margin-top: 20px ;
+  margin-bottom: 15px;
+}
+
+.center{
+  text-align: center;
+}
+
+.erreur{
+  color:red;
+}
